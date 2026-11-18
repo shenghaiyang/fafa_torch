@@ -1,0 +1,53 @@
+name: Publish to pub.dev
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Required for OIDC token exchange with pub.dev.
+      id-token: write
+
+    steps:
+
+      - name: Check ref is a tag
+        if: github.ref_type != 'tag'
+        run: |
+          echo "❌ Publishing must be triggered from a tag. Current ref_type is: ${{ github.ref_type }}"
+          echo "Please select a tag (not a branch) in 'Use workflow from' when running this workflow"
+          exit 1
+
+      - name: Checkout at tag
+        uses: actions/checkout@v7
+
+      - name: Verify tag matches pubspec version
+        run: |
+          PUBSPEC_VERSION=$(grep '^version:' pubspec.yaml | head -n1 | awk '{print $2}')
+          TAG_VERSION="${{ github.ref_name }}"
+          TAG_VERSION="${TAG_VERSION#v}"  # strip leading 'v', e.g. v1.2.3 -> 1.2.3
+          if [ "$PUBSPEC_VERSION" != "$TAG_VERSION" ]; then
+            echo "❌ Tag version ($TAG_VERSION) does not match pubspec.yaml version ($PUBSPEC_VERSION)"
+            exit 1
+          fi
+          echo "✅ Version matches: $PUBSPEC_VERSION"
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Resolve dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Dry-run publish
+        run: dart pub publish --dry-run
