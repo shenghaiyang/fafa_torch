@@ -1,5 +1,6 @@
 # fafa_torch
 
+[![pub package](https://img.shields.io/pub/v/fafa_torch.svg)](https://pub.dev/packages/fafa_torch)
 [![CI](https://github.com/shenghaiyang/fafa_torch/actions/workflows/ci.yml/badge.svg)](https://github.com/shenghaiyang/fafa_torch/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
