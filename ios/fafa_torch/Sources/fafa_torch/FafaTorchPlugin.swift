@@ -19,6 +19,7 @@ public class FafaTorchPlugin: NSObject, FlutterPlugin, TorchHostApi {
   }
 
   public func detachFromEngine(for registrar: FlutterPluginRegistrar) {
+    TorchHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: nil)
     stopObserving()
     stateHandler.sink = nil
     eventChannel?.setStreamHandler(nil)
