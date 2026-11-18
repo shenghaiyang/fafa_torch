@@ -50,11 +50,6 @@ public class FafaTorchPlugin: NSObject, FlutterPlugin, TorchHostApi {
     guard let device = resolveDevice(), device.hasTorch, device.isTorchAvailable else {
       throw PigeonError(code: "torchUnavailable", message: "Torch is not available.", details: nil)
     }
-    guard level == nil || device.isTorchModeSupported(.on) else {
-      throw PigeonError(
-        code: "torchUnavailable", message: "Torch mode is not supported.", details: nil)
-    }
-
     do {
       try device.lockForConfiguration()
       defer { device.unlockForConfiguration() }
