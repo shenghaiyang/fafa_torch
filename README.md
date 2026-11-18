@@ -16,10 +16,10 @@ A Flutter plugin for controlling the device flashlight on Android and iOS, with 
 
 ## Platform support
 
-| Platform | Minimum version | Notes |
-| --- | --- | --- |
-| Android | API 24 | Level control requires API 33 or later, and hardware with adjustable torch strength |
-| iOS | 15.0 | Level control is available on devices with a torch |
+| Platform | Minimum version | Notes                                                                               |
+|----------|-----------------|-------------------------------------------------------------------------------------|
+| Android  | API 24          | Level control requires API 33 or later, and hardware with adjustable torch strength |
+| iOS      | 15.0            | Level control is available on devices with a torch                                  |
 
 Web, macOS, Windows, and Linux are not supported.
 
@@ -92,24 +92,24 @@ try {
 }
 ```
 
-| Error code | Meaning |
-| --- | --- |
-| `torchUnavailable` | No torch is available, or the system cannot use it |
-| `torchInUse` | The torch is held by another camera client |
-| `levelUnsupported` | Level control is not supported on this device |
-| `torchOperationFailed` | The platform failed to complete the operation |
+| Error code             | Meaning                                            |
+|------------------------|----------------------------------------------------|
+| `torchUnavailable`     | No torch is available, or the system cannot use it |
+| `torchInUse`           | The torch is held by another camera client         |
+| `levelUnsupported`     | Level control is not supported on this device      |
+| `torchOperationFailed` | The platform failed to complete the operation      |
 
 ## API
 
-| Member | Description |
-| --- | --- |
-| `isAvailable()` | Returns whether a torch is available |
-| `isOn()` | Returns whether the torch is currently on |
-| `supportsLevel()` | Returns whether the torch level can be adjusted |
+| Member                    | Description                                       |
+|---------------------------|---------------------------------------------------|
+| `isAvailable()`           | Returns whether a torch is available              |
+| `isOn()`                  | Returns whether the torch is currently on         |
+| `supportsLevel()`         | Returns whether the torch level can be adjusted   |
 | `turnOn({double? level})` | Turns the torch on, optionally at the given level |
-| `turnOff()` | Turns the torch off |
-| `level()` | Returns the current level, between 0.0 and 1.0 |
-| `stateChanges` | Broadcast stream of `TorchState` changes |
+| `turnOff()`               | Turns the torch off                               |
+| `level()`                 | Returns the current level, between 0.0 and 1.0    |
+| `stateChanges`            | Broadcast stream of `TorchState` changes          |
 
 ## Notes
 
@@ -117,9 +117,6 @@ try {
 - On Android, `isAvailable()` reports whether a torch is present. Turning it on can still fail with `torchInUse` when another app is using the camera.
 - The plugin does not turn the torch off when the app goes to the background or when the Flutter engine detaches. Apps should manage the torch state themselves.
 
-## Example
-
-The [example](example) app demonstrates toggling, level control, state streaming, and error handling.
 
 ## License
 
