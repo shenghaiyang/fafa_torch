@@ -1,6 +1,6 @@
 name: fafa_torch
 description: "A lightweight Flutter plugin for controlling the device torch (flashlight)."
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/shenghaiyang/fafa_torch
 repository: https://github.com/shenghaiyang/fafa_torch
 issue_tracker: https://github.com/shenghaiyang/fafa_torch/issues

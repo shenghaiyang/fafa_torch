@@ -27,7 +27,7 @@ Web, macOS, Windows, and Linux are not supported.
 
 ```yaml
 dependencies:
-  fafa_torch: ^0.0.1
+  fafa_torch: ^0.1.0
 ```
 
 ## Usage

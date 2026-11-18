@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'fafa_torch'
-  s.version          = '0.0.1'
+  s.version          = '0.1.0'
   s.summary          = 'A Flutter plugin for controlling the device torch.'
   s.description      = <<-DESC
 A Flutter plugin for controlling the Android and iOS device flashlight,
