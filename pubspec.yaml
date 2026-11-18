@@ -1,0 +1,36 @@
+name: fafa_torch
+description: "A lightweight Flutter plugin for controlling the device torch (flashlight)."
+version: 0.0.1
+homepage: https://github.com/shenghaiyang/fafa_torch
+repository: https://github.com/shenghaiyang/fafa_torch
+issue_tracker: https://github.com/shenghaiyang/fafa_torch/issues
+
+topics:
+  - flashlight
+  - torch
+  - flash
+  - camera-flash
+
+environment:
+  sdk: ^3.14.0
+  flutter: '>=3.50.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  pigeon: ^29.0.1
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.shenghaiyang.fafa.torch
+        pluginClass: FafaTorchPlugin
+      ios:
+        pluginClass: FafaTorchPlugin
