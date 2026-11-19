@@ -20,10 +20,8 @@
       "enabled": false
     },
     {
-      "matchManagers": ["gradle"],
       "matchPackageNames": [
-        "dev.flutter.flutter-plugin-loader",
-        "dev.flutter.flutter-plugin-loader.gradle.plugin"
+        "dev.flutter.flutter-plugin-loader"
       ],
       "enabled": false
     }
