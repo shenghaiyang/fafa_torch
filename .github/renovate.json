@@ -1,0 +1,23 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "semanticCommitScope": "deps",
+  "ignorePaths": ["android/**", "ios/**"],
+  "packageRules": [
+    {
+      "matchManagers": ["pub"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": ["dependencies"],
+      "groupName": "dart-minor-patch"
+    },
+    {
+      "matchManagers": ["pub"],
+      "matchPackageNames": ["flutter"],
+      "enabled": false
+    }
+  ]
+}
