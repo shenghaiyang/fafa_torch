@@ -18,6 +18,14 @@
       "matchManagers": ["pub"],
       "matchPackageNames": ["flutter"],
       "enabled": false
+    },
+    {
+      "matchManagers": ["gradle"],
+      "matchPackageNames": [
+        "dev.flutter.flutter-plugin-loader",
+        "dev.flutter.flutter-plugin-loader.gradle.plugin"
+      ],
+      "enabled": false
     }
   ]
 }
